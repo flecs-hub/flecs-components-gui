@@ -1,0 +1,14 @@
+{
+    "id": "flecs.components.gui",
+    "type": "package",
+    "value": {
+        "author": "Sander Mertens",
+        "description": "Flecs module package",
+        "use": [
+            "flecs",
+            "flecs.meta",
+            "flecs.components.graphics",
+            "cglm"
+        ]
+    }
+}
