@@ -11,10 +11,8 @@ void FlecsComponentsGuiImport(
     ECS_IMPORT(world, FlecsComponentsGraphics);
 
     ECS_META(world, EcsWindow);
-    ECS_META(world, EcsCanvas);
-    ECS_COMPONENT(world, EcsCamera);
+    ECS_COMPONENT(world, EcsCanvas);
 
     ECS_EXPORT_COMPONENT(EcsWindow);
     ECS_EXPORT_COMPONENT(EcsCanvas);
-    ECS_EXPORT_COMPONENT(EcsCamera);
 }
