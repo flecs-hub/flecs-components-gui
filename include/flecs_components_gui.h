@@ -30,7 +30,7 @@ typedef struct FlecsComponentsGui {
     ECS_DECLARE_COMPONENT(EcsCanvas);
 } FlecsComponentsGui;
 
-FLECS_COMPONENTS_GUI_EXPORT
+FLECS_COMPONENTS_GUI_API
 void FlecsComponentsGuiImport(
     ecs_world_t *world);
 
@@ -68,6 +68,9 @@ public:
             this->background_color.r = 0.0;
             this->background_color.g = 0.0;
             this->background_color.b = 0.0;
+
+            this->camera = 0;
+            this->directional_light = 0;
         }
     };
 
