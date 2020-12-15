@@ -4,10 +4,6 @@
 /* This generated file contains includes for project dependencies */
 #include "flecs-components-gui/bake_config.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 ECS_STRUCT(EcsWindow, {
     char *title;
     int32_t x;
@@ -24,6 +20,10 @@ typedef struct EcsCanvas {
     ecs_rgb_t ambient_light;
     ecs_entity_t directional_light;
 } EcsCanvas;
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 typedef struct FlecsComponentsGui {
     ECS_DECLARE_COMPONENT(EcsWindow);
