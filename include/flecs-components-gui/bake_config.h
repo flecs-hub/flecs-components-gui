@@ -19,9 +19,8 @@
 
 /* Headers of public dependencies */
 #include <flecs.h>
-#include <flecs_meta.h>
 #include <flecs_components_graphics.h>
-#include <cglm.h>
+#include <flecs_components_cglm.h>
 
 /* Convenience macro for exporting symbols */
 #ifndef flecs_components_gui_STATIC

@@ -4,15 +4,11 @@ void FlecsComponentsGuiImport(
     ecs_world_t *world)
 {
     ECS_MODULE(world, FlecsComponentsGui);
+    ECS_IMPORT(world, FlecsComponentsGraphics);
+    ECS_IMPORT(world, FlecsComponentsCglm);
 
     ecs_set_name_prefix(world, "Ecs");
 
-    ECS_IMPORT(world, FlecsMeta);
-    ECS_IMPORT(world, FlecsComponentsGraphics);
-
-    ECS_META(world, EcsWindow);
-    ECS_COMPONENT(world, EcsCanvas);
-
-    ECS_EXPORT_COMPONENT(EcsWindow);
-    ECS_EXPORT_COMPONENT(EcsCanvas);
+    ECS_META_COMPONENT(world, EcsWindow);
+    ECS_META_COMPONENT(world, EcsCanvas);
 }

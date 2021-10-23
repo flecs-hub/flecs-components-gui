@@ -6,9 +6,8 @@
         "description": "Flecs module package",
         "use": [
             "flecs",
-            "flecs.meta",
             "flecs.components.graphics",
-            "cglm"
+            "flecs.components.cglm"
         ]
     }
 }

@@ -4,6 +4,12 @@
 /* This generated file contains includes for project dependencies */
 #include "flecs-components-gui/bake_config.h"
 
+// Reflection system boilerplate
+#undef ECS_META_IMPL
+#ifndef flecs_components_gui_EXPORTS
+#define ECS_META_IMPL EXTERN // Ensure meta symbols are only defined once
+#endif
+
 ECS_STRUCT(EcsWindow, {
     char *title;
     int32_t x;
@@ -12,31 +18,22 @@ ECS_STRUCT(EcsWindow, {
     int32_t height;
 });
 
-typedef struct EcsCanvas {
+ECS_STRUCT(EcsCanvas, {
     int32_t width;
     int32_t height;
-    ecs_rgb_t background_color;
+    EcsRgb background_color;
     ecs_entity_t camera;
-    ecs_rgb_t ambient_light;
+    EcsRgb ambient_light;
     ecs_entity_t directional_light;
-} EcsCanvas;
+});
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-typedef struct FlecsComponentsGui {
-    ECS_DECLARE_COMPONENT(EcsWindow);
-    ECS_DECLARE_COMPONENT(EcsCanvas);
-} FlecsComponentsGui;
-
 FLECS_COMPONENTS_GUI_API
 void FlecsComponentsGuiImport(
     ecs_world_t *world);
-
-#define FlecsComponentsGuiImportHandles(handles)\
-    ECS_IMPORT_COMPONENT(handles, EcsWindow);\
-    ECS_IMPORT_COMPONENT(handles, EcsCanvas);
 
 #ifdef __cplusplus
 }
@@ -75,7 +72,7 @@ public:
     };
 
     gui(flecs::world& ecs) {
-        FlecsComponentsGuiImport(ecs.c_ptr());
+        FlecsComponentsGuiImport(ecs);
 
         ecs.module<flecs::components::gui>();
 
