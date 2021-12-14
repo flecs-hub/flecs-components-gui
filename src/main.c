@@ -1,3 +1,5 @@
+#define FLECS_COMPONENTS_GUI_IMPL
+
 #include <flecs_components_gui.h>
 
 void FlecsComponentsGuiImport(
@@ -9,6 +11,5 @@ void FlecsComponentsGuiImport(
 
     ecs_set_name_prefix(world, "Ecs");
 
-    ECS_META_COMPONENT(world, EcsWindow);
     ECS_META_COMPONENT(world, EcsCanvas);
 }

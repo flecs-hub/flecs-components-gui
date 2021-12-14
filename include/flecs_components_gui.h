@@ -6,19 +6,12 @@
 
 // Reflection system boilerplate
 #undef ECS_META_IMPL
-#ifndef flecs_components_gui_EXPORTS
+#ifndef FLECS_COMPONENTS_GUI_IMPL
 #define ECS_META_IMPL EXTERN // Ensure meta symbols are only defined once
 #endif
 
-ECS_STRUCT(EcsWindow, {
-    char *title;
-    int32_t x;
-    int32_t y;
-    int32_t width;
-    int32_t height;
-});
-
 ECS_STRUCT(EcsCanvas, {
+    char *title;
     int32_t width;
     int32_t height;
     EcsRgb background_color;
@@ -46,18 +39,10 @@ namespace components {
 
 class gui : FlecsComponentsGui {
 public:
-    struct Window : EcsWindow {
-        Window() {
-            this->title = nullptr;
-            this->x = 0;
-            this->y = 0;
-            this->width = 0;
-            this->height = 0;
-        }
-    };
-
     struct Canvas : EcsCanvas {
         Canvas() {
+            this->title = nullptr;
+
             this->ambient_light.r = 1.0;
             this->ambient_light.g = 1.0;
             this->ambient_light.b = 1.0;
@@ -76,7 +61,6 @@ public:
 
         ecs.module<flecs::components::gui>();
 
-        ecs.pod_component<Window>("flecs::components::gui::Window");
         ecs.pod_component<Canvas>("flecs::components::gui::Canvas");
     }
 };
