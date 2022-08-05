@@ -34,11 +34,12 @@ void FlecsComponentsGuiImport(
 #endif
 
 #ifdef __cplusplus
+#ifndef FLECS_NO_CPP
 
 namespace flecs {
 namespace components {
 
-class gui : FlecsComponentsGui {
+class gui {
 public:
     struct Canvas : EcsCanvas {
         Canvas() {
@@ -58,17 +59,19 @@ public:
     };
 
     gui(flecs::world& ecs) {
+        // Load module contents
         FlecsComponentsGuiImport(ecs);
 
+        // Bind C++ types with module contents
         ecs.module<flecs::components::gui>();
-
-        ecs.pod_component<Canvas>("flecs::components::gui::Canvas");
+        ecs.component<Canvas>();
     }
 };
 
 }
 }
 
+#endif
 #endif
 
 #endif
