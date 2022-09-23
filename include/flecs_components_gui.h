@@ -15,10 +15,11 @@ ECS_STRUCT(EcsCanvas, {
     char *title;
     int32_t width;
     int32_t height;
-    EcsRgb background_color;
     ecs_entity_t camera;
-    EcsRgb ambient_light;
     ecs_entity_t directional_light;
+    EcsRgb background_color;
+    EcsRgb ambient_light;
+    float fog_density;
 });
 
 #ifdef __cplusplus
